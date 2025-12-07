@@ -1,0 +1,19 @@
+{
+  "name": "sme-self-assessment-sample",
+  "version": "0.1.0",
+  "description": "Sample scoring module and tests for SME Self-Assessment",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest tests/score.test.js",
+    "test:integration": "jest tests/integration.test.js --runInBand"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "supertest": "^6.3.0"
+  },
+  "type": "commonjs"
+}

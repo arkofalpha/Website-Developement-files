@@ -1,0 +1,52 @@
+Business Self-Assessment Platform for SMEs
+System Requirements and Project Documentation
+1. Project Title
+Business Self-Assessment Platform for Performance and Capacity Evaluation
+2. Background
+Small and medium-sized enterprises (SMEs) are critical to economic development, employment creation, and innovation. However, many SMEs lack structured mechanisms to evaluate their internal capacity and performance. Existing diagnostic tools are often consultant-led, fragmented, or inaccessible to smaller enterprises. This project proposes an interactive digital platform allowing SMEs to independently evaluate performance, with automated data collection, scoring, visualization, and reporting.
+3. Goal
+To develop a digital platform that enables SMEs to self-assess their business performance across key operational and management areas, receive automated feedback, and access data-driven insights for improvement.
+4. Specific Objectives
+•	Digitize the SME performance assessment tool into an online platform.
+•	Automate score computation and visualization per thematic area.
+•	Provide dashboards summarizing enterprise performance indicators.
+•	Generate downloadable feedback reports with recommendations.
+•	Establish a secure database for data storage and analytics.
+5. System Features
+•	User authentication and profile management.
+•	Self-assessment module with Likert-scale questions.
+•	Automated scoring, feedback, and reporting logic.
+•	Interactive dashboard with charts and performance tables.
+•	Admin panel for data analytics and trend visualization.
+6. Thematic Areas
+The platform assesses SMEs across 11 key thematic areas including Problem Identification, Product Development, Staffing, Marketing, Business Systems, Record Keeping, Assets, Financial Health, and Sustainability.
+7. Functional Requirements
+•	Users can register, log in, and update business profiles.
+•	Users can complete the self-assessment questionnaire online.
+•	The system computes mean scores and percentages per thematic area.
+•	Users can visualize results via bar/radar charts on the dashboard.
+•	Users can download a personalized report in PDF format.
+•	Admin users can access aggregate performance analytics.
+8. Non-Functional Requirements
+•	System must be accessible on desktop and mobile devices.
+•	Data must be encrypted and securely stored.
+•	Platform should be scalable to handle high user traffic.
+•	Interface should be intuitive and user-friendly.
+•	Performance: responses and scoring processed in real time.
+9. Technical Specifications
+Component	Technology Stack
+Frontend	React.js, Tailwind CSS
+Backend	Node.js, Express.js
+Database	PostgreSQL or MongoDB
+Authentication	JWT or Firebase Auth
+Visualization	Chart.js or D3.js
+PDF Reports	jsPDF or PDFKit
+Hosting	AWS / Render / Vercel
+10. Deliverables
+•	Web-based SME self-assessment platform.
+•	Interactive user dashboard with charts and summaries.
+•	Automated PDF report generation system.
+•	Secure backend with authentication and data storage.
+•	Administrative panel for analytics and monitoring.
+
+The platform will empower SMEs to assess and strengthen their internal capacities using data-driven insights. It will help entrepreneurs identify performance gaps and guide support organizations in tailoring interventions based on aggregate analytics.

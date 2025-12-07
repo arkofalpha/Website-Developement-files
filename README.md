@@ -173,6 +173,36 @@ npm run migrate
 
 This project is proprietary software.
 
+## Quick Start
+
+See `QUICKSTART.md` for a 5-minute setup guide.
+
+## Setup Instructions
+
+See `SETUP.md` for detailed setup instructions.
+
+## Testing
+
+### Backend Tests
+```bash
+cd backend
+npm test
+npm run test:coverage
+```
+
+### Test Coverage
+- Scoring module: 95%+ target
+- API endpoints: 80%+ target
+- Overall: 75%+ minimum
+
+## PDF Report Generation
+
+PDF reports are generated on-demand when users click "Download PDF Report" on the results page.
+
+- Reports are stored temporarily in `backend/reports/`
+- Auto-cleanup after 1 hour
+- Can be configured to use S3/cloud storage
+
 ## Support
 
 For issues and questions, please contact the development team.

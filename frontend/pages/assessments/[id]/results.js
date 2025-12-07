@@ -33,6 +33,7 @@ export default function AssessmentResults() {
   const { id } = router.query;
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [downloading, setDownloading] = useState(false);
 
   useEffect(() => {
     if (id) {
@@ -48,6 +49,46 @@ export default function AssessmentResults() {
       console.error('Failed to load results:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDownloadPDF = async () => {
+    setDownloading(true);
+    try {
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const API_VERSION = process.env.NEXT_PUBLIC_API_VERSION || 'v1';
+      const token = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('accessToken='))
+        ?.split('=')[1];
+
+      const response = await fetch(
+        `${API_BASE_URL}/api/${API_VERSION}/reports/${id}/pdf`,
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to download PDF');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `assessment-report-${id}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error('Failed to download PDF:', error);
+      alert('Failed to download PDF. Please try again.');
+    } finally {
+      setDownloading(false);
     }
   };
 
@@ -139,9 +180,18 @@ export default function AssessmentResults() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold text-primary-dark">Assessment Results</h1>
-            <Link href="/" className="btn btn-secondary">
-              Back to Dashboard
-            </Link>
+            <div className="flex gap-4">
+              <button
+                onClick={handleDownloadPDF}
+                disabled={downloading}
+                className="btn btn-primary"
+              >
+                {downloading ? 'Generating...' : 'Download PDF Report'}
+              </button>
+              <Link href="/" className="btn btn-secondary">
+                Back to Dashboard
+              </Link>
+            </div>
           </div>
         </div>
       </header>
@@ -245,4 +295,3 @@ export default function AssessmentResults() {
     </div>
   );
 }
-

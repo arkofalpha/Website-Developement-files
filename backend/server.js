@@ -9,6 +9,7 @@ import { errorHandler } from './middleware/errorHandler.js';
 import authRoutes from './routes/auth.js';
 import businessProfileRoutes from './routes/businessProfiles.js';
 import assessmentRoutes from './routes/assessments.js';
+import reportRoutes from './routes/reports.js';
 
 dotenv.config();
 
@@ -76,6 +77,7 @@ app.get('/health', (req, res) => {
 app.use(`/api/${API_VERSION}/auth`, authRoutes);
 app.use(`/api/${API_VERSION}/business-profiles`, businessProfileRoutes);
 app.use(`/api/${API_VERSION}/assessments`, assessmentRoutes);
+app.use(`/api/${API_VERSION}/reports`, reportRoutes);
 
 // 404 handler
 app.use((req, res) => {
